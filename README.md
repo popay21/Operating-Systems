@@ -1,38 +1,42 @@
-# MyShellProject
+# MyShell Project
 
-## Description
-This project implements a custom shell with various built-in commands.
+This project is a simple shell implementation for the Operating Systems course.
 
 ## Structure
 
-MyShellProject/
-├── include/
-│ ├── functions.h
-├── src/
-│ ├── functions.c
-│ ├── main.c
-├── build/
-├── MyShellProject.sln
+- **include/**: Contains header files.
+  - `functions.h`: Declarations for all functions.
 
+- **src/**: Contains source files.
+  - `main.c`: Main program file.
+  - `welcome.c`: Prints the welcome message.
+  - `getLocation.c`: Prints the current working directory.
+  - `splitArgument.c`: Splits a string into an array of words.
+  - `logout.c`: Logs out from the shell.
+  - `cd.c`: Changes the current working directory.
+  - `cp.c`: Copies a file.
+  - `delete.c`: Deletes a file.
+  - `mypipe.c`: Executes two commands with a pipe.
+  - `move.c`: Moves (renames) a file.
+  - `echoppend.c`: Appends a string to a file.
+  - `echorite.c`: Overwrites a file with a string.
+  - `read.c`: Reads and prints the contents of a file.
+  - `wordCount.c`: Counts the words in a file.
 
-## Compilation
-To compile the project, run the following command:
+- **Makefile**: Builds the project.
+- **README.md**: This file.
+- Sample files for testing: `source.txt`, `destination.txt`, `oldname.txt`, `newname.txt`, `file.txt`.
+
+## Building the Project
+
+To build the project, run:
+
 ```sh
-gcc -Iinclude -o build/myshell src/functions.c src/main.c
+make
 
-To run the shell, use: ./build/myshell
+To run the project, use:
+./main
 
-Built-in Commands
-welcome: Prints a welcome message.
-getLocation: Prints the current directory and user info.
-splitArgument: Splits a string into arguments.
-logout: Logs out of the shell.
-cd: Changes the current directory.
-cp: Copies a file.
-delete: Deletes a file.
-mypipe: Executes two commands with a pipe.
-move: Moves a file.
-echoppend: Appends a string to a file.
-echorite: Overwrites a file with a string.
-readFile: Reads and prints the contents of a file.
-wordCount: Counts the words in a file.
+To clean the build files, run:
+make clean
+# Operating-Systems-pro
