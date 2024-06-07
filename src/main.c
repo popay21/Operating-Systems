@@ -1,51 +1,57 @@
 #include <stdio.h>
+#include <stdlib.h>
 #include "functions.h"
 
-int main() {
-    welcome();  // בדיקת פונקציית welcome
-    getLocation();  // בדיקת פונקציית getLocation
+int main()
+{
+    welcome();     // קריאה לפונקציה שמדפיסה את הודעת הפתיחה
+    getLocation(); // קריאה לפונקציה שמדפיסה את המיקום הנוכחי
 
-    // בדיקת פונקציית splitArgument
+    // בדיקת פונקציה לפיצול מחרוזת
     char str[] = "cd OneDrive - Ariel University";
     char **args = splitArgument(str);
-
-    for (int i = 0; args[i] != NULL; i++) {
-        printf("Argument[%d]: %s\n", i, args[i]);
+    for (int i = 0; args[i] != NULL; i++)
+    {
+        printf("args[%d]: %s\n", i, args[i]);
     }
 
+    // בדיקת פונקציית logout
+    logout("Goodbye!");
+
     // בדיקת פונקציית cd
-    cd(args);
+    char *cdArgs[] = {"cd", "/tmp", NULL};
+    cd(cdArgs);
 
     // בדיקת פונקציית cp
     char *cpArgs[] = {"cp", "source.txt", "destination.txt", NULL};
     cp(cpArgs);
 
     // בדיקת פונקציית delete
-    delete("destination.txt");
+    delete ("destination.txt");
 
     // בדיקת פונקציית mypipe
-    char *argv1[] = {"ls", "-l", NULL};
-    char *argv2[] = {"grep", "test", NULL};
-    mypipe(argv1, argv2);
+    char *mypipeArgs1[] = {"ls", "-l", NULL};
+    char *mypipeArgs2[] = {"grep", ".c", NULL};
+    mypipe(mypipeArgs1, mypipeArgs2);
 
     // בדיקת פונקציית move
-    char *mvArgs[] = {"move", "source.txt", "new_destination.txt", NULL};
-    move(mvArgs);
+    char *moveArgs[] = {"move", "oldname.txt", "newname.txt", NULL};
+    move(moveArgs);
 
     // בדיקת פונקציית echoppend
-    char *echoAppendArgs[] = {"echoppend", "Hello, World!", "output.txt", NULL};
-    echoppend(echoAppendArgs);
+    char *echoppendArgs[] = {"echoppend", "Hello, World!", "file.txt", NULL};
+    echoppend(echoppendArgs);
 
     // בדיקת פונקציית echorite
-    char *echoWriteArgs[] = {"echorite", "Hello, Universe!", "output.txt", NULL};
-    echorite(echoWriteArgs);
+    char *echoriteArgs[] = {"echorite", "Overwritten content", "file.txt", NULL};
+    echorite(echoriteArgs);
 
     // בדיקת פונקציית readFile
-    char *readArgs[] = {"read", "output.txt", NULL};
+    char *readArgs[] = {"read", "file.txt", NULL};
     readFile(readArgs);
 
     // בדיקת פונקציית wordCount
-    char *wordCountArgs[] = {"wordCount", "output.txt", NULL};
+    char *wordCountArgs[] = {"wordCount", "file.txt", NULL};
     wordCount(wordCountArgs);
 
     free(args);  // שחרור הזיכרון המוקצה

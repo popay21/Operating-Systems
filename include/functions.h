@@ -15,4 +15,4 @@ void echorite(char **args);
 void readFile(char **args);
 void wordCount(char **args);
 
-#endif // FUNCTIONS_H
+#endif
